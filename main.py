@@ -33,7 +33,7 @@ def send_incoming_slack():
         to_number = get_to_number(incoming_slack_message_id, channel)
         if to_number:
             messages = twilioClient.messages.create(
-                to=to_number, from_=os.getenv("TWILIO_FROM"), body=slack_message)
+                to=to_number, from_=os.getenv("TWILIO_NUMBER"), body=slack_message)
         return Response(), 200
     return Response(), 200
 
