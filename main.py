@@ -47,6 +47,7 @@ def get_to_number(incoming_slack_message_id, channel):
     if r.status_code == 200:
        data = r.json()
        if 'messages' in data and 'subtype' in data['messages'][0] and data['messages'][0]['subtype'] == 'bot_message': 
+           text = data['messages'][0]['text']
            phone_number = extract_phone_number(text)
            return phone_number
     return None
